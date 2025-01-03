@@ -32,7 +32,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/my-image:latest
+          docker build DockerFileFolder/ -t ${{ secrets.ACR_LOGIN_SERVER }}/my-image:latest
 
       - name: Push Docker image
         run: |
