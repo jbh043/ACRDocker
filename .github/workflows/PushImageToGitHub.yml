@@ -37,6 +37,11 @@ jobs:
       - name: Push Docker image
         run: |
           docker push ${{ secrets.ACR_LOGIN_SERVER }}/my-image:latest
+
+      - uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'JavaWebApp23'
+          images: '${{ secrets.ACR_LOGIN_SERVER }}/my-image:latest'
           
     # steps:
     #   - name: Check out the repo
