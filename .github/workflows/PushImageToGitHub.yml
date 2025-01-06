@@ -38,6 +38,13 @@ jobs:
         run: |
           docker push ${{ secrets.ACR_LOGIN_SERVER }}/my-image:latest
 
+      - name: 'Login via Azure CLI'
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.ACR_USERNAME }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
       - uses: azure/webapps-deploy@v2
         with:
           app-name: 'JavaWebApp23'
