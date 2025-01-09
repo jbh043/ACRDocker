@@ -17,6 +17,10 @@ jobs:
       - name: Read current version
         id: get_version
         run: |
+          if [ ! -f VERSION ]; then
+            echo "VERSION file not found. Exiting."
+            exit 1
+          fi
           VERSION=$(cat VERSION)
           echo "Current version: $VERSION"
           echo "::set-output name=version::$VERSION"
