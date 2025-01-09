@@ -37,7 +37,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build . -t ghcr.io/${{ github.repository }}/my-app:${{ steps.increment_version.outputs.new_version }}
+          docker build DockerFileFolder/ -t ghcr.io/${{ github.repository }}/my-app:${{ steps.increment_version.outputs.new_version }}
 
       - name: Push Docker image
         run: |
